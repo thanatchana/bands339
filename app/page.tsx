@@ -5,9 +5,6 @@ export default function FavoriteBandsPage() {
   return (
     <main className="page">
       <h1>วงดนตรีที่ชื่นชอบ</h1>
-      <p className="pageDescription">
-        รวมข้อมูลวงดนตรีที่ชื่นชอบ พร้อมรายชื่อสมาชิกของแต่ละวง
-      </p>
 
       <section className="bandGrid">
         {bands.map((band) => (
