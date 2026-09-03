@@ -1,7 +1,15 @@
-const config = {
-  plugins: {
-    "@tailwindcss/postcss": {},
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'thumb.wikimedia.org',
+        port: '',
+        pathname: '/**',
+      },
+    ],
   },
 };
 
-export default config;
+export default nextConfig;

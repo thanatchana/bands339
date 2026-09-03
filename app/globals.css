@@ -1,26 +1,176 @@
-@import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+* {
+  box-sizing: border-box;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html,
+body {
+  min-height: 100%;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  color: #3f2e52;
+  background: #f5f1fa;
+  font-family: Arial, sans-serif;
+  line-height: 1.5;
+}
+
+/* ========== Layout กลาง ========== */
+.navbar,
+.page {
+  width: 100%;
+  max-width: 70rem;
+  margin-inline: auto;
+  padding-inline: clamp(1rem, 4vw, 2.5rem);
+}
+
+.page {
+  padding-block: 2rem;
+}
+
+/* ========== Navbar ========== */
+.siteHeader {
+  background: #c9aee0;
+}
+
+.navList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.25rem;
+  margin: 0;
+  padding: 1rem 0;
+  list-style: none;
+}
+
+.navLink {
+  color: #3f2e52;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.navLink:hover,
+.navLink:focus-visible {
+  text-decoration: underline;
+}
+
+/* ========== หัวข้อหน้า ========== */
+h1 {
+  font-size: clamp(1.4rem, 4vw + 0.5rem, 2rem);
+  color: #6b4a91;
+  margin: 0 0 0.4rem;
+}
+
+.pageDescription {
+  color: #7a6690;
+  font-size: clamp(0.9rem, 2vw, 1rem);
+  margin: 0 0 1.5rem;
+}
+
+/* ========== การ์ดรายวิชา (courses/page.tsx) ========== */
+.courseGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
+  gap: 1rem;
+}
+
+.courseCard {
+  padding: 1rem;
+  border: 1px solid #dcc9ec;
+  border-radius: 0.75rem;
+  background: #ffffff;
+}
+
+/* ========== การ์ดวงดนตรี (bands/page.tsx) ========== */
+.bandGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr));
+  gap: 1.25rem;
+}
+
+.bandCard {
+  background: #ffffff;
+  border: 1px solid #dcc9ec;
+  border-radius: 0.75rem;
+  overflow: hidden;
+}
+
+.bandImageWrap {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: #e9defa;
+}
+
+.bandImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.bandInfo {
+  padding: 1rem 1.25rem 1.5rem;
+}
+
+.bandInfo h2 {
+  margin: 0 0 0.25rem;
+  color: #6b4a91;
+  font-size: 1.2rem;
+}
+
+.bandGenre {
+  color: #7a6690;
+  font-size: 0.9rem;
+  margin: 0 0 1rem;
+}
+
+.bandInfo h3 {
+  font-size: 0.85rem;
+  margin: 0 0 0.5rem;
+  color: #6b4a91;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.memberList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.memberList li {
+  background: #f1e9fb;
+  border-left: 3px solid #a884cc;
+  padding: 0.4rem 0.6rem;
+  border-radius: 0.35rem;
+  font-size: 0.9rem;
+  color: #4a3960;
+}
+
+/* ========== Responsive: จอแคบกว่า 620px ========== */
+@media (max-width: 620px) {
+  .bandGrid,
+  .courseGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ========== Responsive: มือถือขนาดเล็ก ========== */
+@media (max-width: 480px) {
+  .page {
+    padding-block: 1.25rem;
+  }
+
+  .navList {
+    justify-content: center;
+    padding: 0.75rem 0;
+  }
+
+  .navLink {
+    font-size: 0.9rem;
+  }
 }
