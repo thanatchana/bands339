@@ -19,7 +19,7 @@ export const bands: Band[] = [
     id: 3,
     name: "Serious Bacon",
     genre: "Pop",
-    image: "/images/bands/serious-bacon.jpg",
+    image: "/images/bands/Serious-Bacon.jpg",
     members: ["เค้ก - เปมิกา", "สองเมือง - ไชยฤทธิ์"],
   },
 ];
